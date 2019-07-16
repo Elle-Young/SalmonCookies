@@ -11,6 +11,44 @@ function Shop(name, minCustomer, maxCustomer, avgSales){
   this.maxCustomer = maxCustomer;
   this.avgSales = avgSales;
   this.total = 0;
-  
+  this.hourlysales = [];
+  shopObject.push(this);
+  this.createSales();
 
 }
+
+Shop.prototype.random= function(){
+
+  var range = this.maxCustomer - this.minCustomer;
+  var randomNum = Math.random()*range;
+  randomNum= Math.floor(randomNum);
+  return this.minCustomer + randomNum;
+
+};
+
+Shop.prototype.createSales= function (){
+  for(let i = 0; i < hours.length; i++){
+    var customers = this.random();
+    var cookiesales = customers * this.avgSales;
+    cookiesales = Math.floor(cookiesales);
+    this.hourlysales.push(cookiesales);
+    console.log(this.hourlysales);
+    this.total= this.total + cookiesales;
+    console.log('total', this.total);
+  }
+
+};
+
+var thead = document.getElementsByTagName(thead) [0];
+var tbody = document.getElementsByTagName(tbody) [0];
+var tfoot = document.getElementsByTagName(tfoot) [0];
+
+
+var pike = new Shop('1st and Pike', 23, 65, 6.3);
+var sea = new Shop('SeaTac', 3, 24, 1.2);
+var center = new Shop('Seattle Center', 11, 38, 3.7);
+var cap = new Shop('Capitol Hill', 20, 38, 2.3);
+var alki = new Shop('Alki', 2, 16, 4.6);
+
+
+
