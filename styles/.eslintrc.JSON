@@ -24,7 +24,6 @@
         }
       }
     ],
-    "no-trailing-spaces": "warn",
     "new-cap": "warn",
     "no-redeclare": [
       "error",
@@ -32,7 +31,5 @@
         "builtinGlobals": true
       }
     ],
-    "semi": [2, "always"],
-    "eol-last": "error"
-  }
+    "semi": [2, "always"]  }
 }
