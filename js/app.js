@@ -27,17 +27,31 @@ Shop.prototype.random= function(){
 };
 
 Shop.prototype.createSales= function (){
-  for(let i = 0; i < hours.length; i++){
+  for(var i = 0; i < hours.length; i++){
     var customers = this.random();
     var cookiesales = customers * this.avgSales;
     cookiesales = Math.floor(cookiesales);
     this.hourlysales.push(cookiesales);
-    console.log(this.hourlysales);
     this.total= this.total + cookiesales;
-    console.log('total', this.total);
-  }
 
+  }
+  renderList(this.hourlysales);
 };
+
+function renderList(sales){  //where is this getting it's paramiter? what is sales?
+  var id= document.getElementById('list');
+  var ul = document.createElement('ul');
+  id.append(ul);
+  var ulel= document.getElementsByTagName('ul')[0];
+  console.log(ulel);
+  for (var i = 0; i<sales.length; i++){
+    var li = document.createElement('li');
+    var data = document.createTextNode(`Sales data ${sales[i]}`);
+    li.appendChild(data);
+    ulel.append(li);
+    console.log(sales[i]);
+  }
+}
 
 var thead = document.getElementsByTagName(thead) [0];
 var tbody = document.getElementsByTagName(tbody) [0];
@@ -51,4 +65,8 @@ var cap = new Shop('Capitol Hill', 20, 38, 2.3);
 var alki = new Shop('Alki', 2, 16, 4.6);
 
 
+// renderList(pike.hourlysales);
 
+// we want to render a table to show our sales data for each store. There will be 6 rows and a column for every hour in hours array. the totals for all hours will be added in a footer row
+//this table will also need to update with random data per cell each time the page is refreshed. 
+//we will then need to create a form to add a new row to our table via the constructor function
