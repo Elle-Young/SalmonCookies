@@ -1,11 +1,13 @@
 'use strict';
 
+
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var thead = document.getElementsByTagName('thead')[0];
 var tbody = document.getElementsByTagName('tbody')[0];
 var tfoot = document.getElementsByTagName('tfoot')[0];
 
+var form = document.getElementsByTagName('form')[0];
 
 var shopObject= [];
 
@@ -44,27 +46,26 @@ Shop.prototype.createSales= function (){
 Shop.prototype.renderSales= function(){
   var tr = addElement('tr', '', tbody);
   addElement('td', this.name, tr);
-  console.log(this.sales);
   for (var i = 0; i < hours.length; i++){
     addElement('td', this.hourlysales[i], tr);
   }
+  addElement('td', this.total, tr);
+
   // renderList(this.hourlysales);
 };
 
-function renderList(sales){
-  var id= document.getElementById('list');
-  var ul = document.createElement('ul');
-  id.append(ul);
-  var ulel= document.getElementsByTagName('ul')[0];
-  console.log(ulel);
-  for (var i = 0; i<sales.length; i++){
-    var li = document.createElement('li');
-    var data = document.createTextNode(`Sales data ${sales[i]}`);
-    li.appendChild(data);
-    ulel.append(li);
-    console.log(sales[i]);
-  }
-}
+// function renderList(sales){
+//   var id= document.getElementById('list');
+//   var ul = document.createElement('ul');
+//   id.append(ul);
+//   var ulel= document.getElementsByTagName('ul')[0];
+//   for (var i = 0; i<sales.length; i++){
+//     var li = document.createElement('li');
+//     var data = document.createTextNode(`Sales data ${sales[i]}`);
+//     li.appendChild(data);
+//     ulel.append(li);
+//   }
+// }
 
 function addElement (element, text, parent){
   var newElement = document.createElement(element);
@@ -78,23 +79,39 @@ function addElement (element, text, parent){
 //header cell for each hour
 
 function createTheader (){
-  console.log(thead);
   var row = addElement('tr', '', thead);
-  addElement('th', '', row)
+  addElement('th', '', row);
   for (var i =0; i < hours.length; i++ ){
     addElement('th', hours[i], row);
   }
-  console.log(row);
 }
 
 
 function createTbody (){
   for(var i = 0; i < shopObject.length; i++){
-    console.log(shopObject);
     shopObject[i].renderSales();
 
   }
 }
+
+function createTfooter(){
+  tfoot.innerHTML= '';
+  var totalRow= addElement('tr', '', tfoot);
+  addElement('th', 'Total', totalRow);
+  var total = 0;
+  for (var i = 0; i < hours.length; i++){
+    var sum = 0;
+    for (var j = 0; j < shopObject.length; j++){
+      sum = sum + shopObject[j].hourlysales[i];
+      console.log(sum);
+      total = total + shopObject[j].hourlysales[i];
+    }
+    addElement('td', sum, totalRow);
+  }
+  addElement('td', total, totalRow);  
+}
+
+
 
 
 
@@ -112,7 +129,22 @@ var alki = new Shop('Alki', 2, 16, 4.6);
 //create td's to be inputs so we can change info on table
 
 //footer = totals (total + hoursly sales = actual total)
+function newShopObject(event){
+  event.preventDefault();
+  console.log(event.target.name.value);
+  var newName = event.target.name.value;
+  var minCus = event.target.minCus.value;
+  var maxCus = event.target.maxCus.value;
+  var avgSales = event.target.avgSales.value;
+
+  var newShop = new Shop(newName, minCus, maxCus, avgSales);
+  newShop.renderSales();
+  console.log(newShop);
+  createTfooter();
+}
+form.addEventListener('submit', newShopObject);
 
 
 createTheader();
 createTbody();
+createTfooter();
