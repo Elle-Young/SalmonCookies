@@ -1,5 +1,38 @@
 html{
-    background-color: grey;
+    /* background-color: grey; */
     color: rgba(0, 0, 0, 0.794);
+ 
+    padding: 10px;
+
 }
 
+header{
+    top:0;
+    left: 0;
+    right: 0;
+    /* position: fixed; */
+    width: auto;
+    background-color: rgb(66, 18, 34);
+    height: 100px;
+}
+
+header img{
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 150px;
+    height: auto;
+} 
+nav{ 
+    left: 0;
+    right: 0;
+}
+nav li{
+    margin: 5px;
+    float: right;
+}
+body {
+    background-size: cover;
+    background-color: rgb(100, 6, 19);
+    font-family: sans-serif;
+}
