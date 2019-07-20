@@ -2,6 +2,10 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
+var thead = document.getElementsByTagName('thead')[0];
+var tbody = document.getElementsByTagName('tbody')[0];
+var tfoot = document.getElementsByTagName('tfoot')[0];
+
 
 var shopObject= [];
 
@@ -12,10 +16,11 @@ function Shop(name, minCustomer, maxCustomer, avgSales){
   this.avgSales = avgSales;
   this.total = 0;
   this.hourlysales = [];
-  shopObject.push(this);
   this.createSales();
+  shopObject.push(this);
 
 }
+
 
 Shop.prototype.random= function(){
 
@@ -35,10 +40,18 @@ Shop.prototype.createSales= function (){
     this.total= this.total + cookiesales;
 
   }
-  renderList(this.hourlysales);
+};
+Shop.prototype.renderSales= function(){
+  var tr = addElement('tr', '', tbody);
+  addElement('td', this.name, tr);
+  console.log(this.sales);
+  for (var i = 0; i < hours.length; i++){
+    addElement('td', this.hourlysales[i], tr);
+  }
+  // renderList(this.hourlysales);
 };
 
-function renderList(sales){  //where is this getting it's paramiter? what is sales?
+function renderList(sales){
   var id= document.getElementById('list');
   var ul = document.createElement('ul');
   id.append(ul);
@@ -53,9 +66,37 @@ function renderList(sales){  //where is this getting it's paramiter? what is sal
   }
 }
 
-var thead = document.getElementsByTagName(thead) [0];
-var tbody = document.getElementsByTagName(tbody) [0];
-var tfoot = document.getElementsByTagName(tfoot) [0];
+function addElement (element, text, parent){
+  var newElement = document.createElement(element);
+  var newText = document.createTextNode(text);
+  newElement.appendChild(newText);
+  parent.appendChild(newElement);
+  return newElement;
+}
+
+
+//header cell for each hour
+
+function createTheader (){
+  console.log(thead);
+  var row = addElement('tr', '', thead);
+  addElement('th', '', row)
+  for (var i =0; i < hours.length; i++ ){
+    addElement('th', hours[i], row);
+  }
+  console.log(row);
+}
+
+
+function createTbody (){
+  for(var i = 0; i < shopObject.length; i++){
+    console.log(shopObject);
+    shopObject[i].renderSales();
+
+  }
+}
+
+
 
 
 var pike = new Shop('1st and Pike', 23, 65, 6.3);
@@ -67,6 +108,11 @@ var alki = new Shop('Alki', 2, 16, 4.6);
 
 // renderList(pike.hourlysales);
 
-// we want to render a table to show our sales data for each store. There will be 6 rows and a column for every hour in hours array. the totals for all hours will be added in a footer row
-//this table will also need to update with random data per cell each time the page is refreshed. 
 //we will then need to create a form to add a new row to our table via the constructor function
+//create td's to be inputs so we can change info on table
+
+//footer = totals (total + hoursly sales = actual total)
+
+
+createTheader();
+createTbody();
