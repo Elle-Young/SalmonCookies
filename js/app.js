@@ -50,22 +50,7 @@ Shop.prototype.renderSales= function(){
     addElement('td', this.hourlysales[i], tr);
   }
   addElement('td', this.total, tr);
-
-  // renderList(this.hourlysales);
 };
-
-// function renderList(sales){
-//   var id= document.getElementById('list');
-//   var ul = document.createElement('ul');
-//   id.append(ul);
-//   var ulel= document.getElementsByTagName('ul')[0];
-//   for (var i = 0; i<sales.length; i++){
-//     var li = document.createElement('li');
-//     var data = document.createTextNode(`Sales data ${sales[i]}`);
-//     li.appendChild(data);
-//     ulel.append(li);
-//   }
-// }
 
 function addElement (element, text, parent){
   var newElement = document.createElement(element);
@@ -75,23 +60,22 @@ function addElement (element, text, parent){
   return newElement;
 }
 
-
-//header cell for each hour
-
 function createTheader (){
   var row = addElement('tr', '', thead);
   addElement('th', '', row);
   for (var i =0; i < hours.length; i++ ){
     addElement('th', hours[i], row);
-  }
-}
 
+  }
+
+}
 
 function createTbody (){
   for(var i = 0; i < shopObject.length; i++){
     shopObject[i].renderSales();
 
   }
+  
 }
 
 function createTfooter(){
@@ -111,11 +95,6 @@ function createTfooter(){
   addElement('td', total, totalRow);  
 }
 
-
-
-
-
-
 var pike = new Shop('1st and Pike', 23, 65, 6.3);
 var sea = new Shop('SeaTac', 3, 24, 1.2);
 var center = new Shop('Seattle Center', 11, 38, 3.7);
@@ -123,12 +102,6 @@ var cap = new Shop('Capitol Hill', 20, 38, 2.3);
 var alki = new Shop('Alki', 2, 16, 4.6);
 
 
-// renderList(pike.hourlysales);
-
-//we will then need to create a form to add a new row to our table via the constructor function
-//create td's to be inputs so we can change info on table
-
-//footer = totals (total + hoursly sales = actual total)
 function newShopObject(event){
   event.preventDefault();
   console.log(event.target.name.value);

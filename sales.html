@@ -2,11 +2,14 @@
 <html>
     <head>
         <link rel='stylesheet' href='./styles/reset.css'>
+        <!-- <link rel='stylesheet' href='./styles/home.css'> -->
         <link rel='stylesheet' href='./styles/sales.css'>
         
     </head>
     <body>
-        <header>Pat's Salmon Cookies</header>
+            
+            <a href='index.html'>Click here for home</a>
+        <header><h1>Pat's Salmon Cookies</h1></header>
         <table id='cookieTable'>
             <thead></thead>
             <tbody></tbody>
@@ -14,8 +17,10 @@
 
         </table>
 
+        <div id='form'>
         <form>
             <fieldset>
+                <legend>Add a Location:</legend>
                 <label>Name</label>
                 <input type="text" name="name">
                 <label>Minimum Customers</label>
@@ -27,9 +32,8 @@
                 <input type="submit" name="submit">
             </fieldset>
         </form>
+    </div>
 
-
-        <div id='list'></div>
         <script src='js/app.js' type="text/javascript"></script>
     </body>
 </html>

@@ -1,0 +1,22 @@
+thead{
+    text-decoration-line: underline   
+}
+
+tbody tr td:first-child{
+    background-color: rgba(122, 122, 122, 0.671);
+
+}
+tbody tr td:last-child{
+    background-color: rgb(122, 122, 122);
+}
+
+tbody td:nth-child(even) {
+    background-color: rgb(155, 15, 108);
+ }
+ tbody td:nth-child(odd) {
+    background-color: rgb(78, 184, 16);
+ }
+
+ tfoot{
+    background-color: rgba(122, 122, 122, 0.74);
+}
