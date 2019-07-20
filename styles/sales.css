@@ -1,0 +1,54 @@
+#cookieTable{ 
+   
+    font-size: 15px;
+    font-weight: 700;
+}
+
+thead{
+    text-decoration-line: underline;
+    font-size: 20px;
+    
+}
+thead tr:only-child{
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+
+tbody tr td:first-child{
+    background-color: rgba(122, 122, 122, 0.671);
+    font-size: 18px;
+    max-width:100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    white-space:nowrap;
+
+}
+tbody tr td:last-child{
+    background-color: rgb(122, 122, 122);
+    text-align: center;
+}
+
+tbody td:nth-child(even) {
+    background-color: rgb(155, 15, 108);
+    text-align: center;
+ }
+ tbody td:nth-child(odd) {
+    background-color: rgb(78, 184, 16);
+    text-align: center;
+ }
+
+ tfoot{
+    background-color: rgba(122, 122, 122, 0.74);
+    text-align: center
+}
+
+form{
+    margin: auto;
+    padding: 30px;
+    width: 150px;
+    height: 300px;
+
+    /* display: inline-block */
+}
+

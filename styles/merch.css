@@ -1,0 +1,10 @@
+section img{
+    height: 200px;
+    width: auto;
+
+}
+
+.item{
+    display: flex;
+    border: 20px, dotted, black;
+}
