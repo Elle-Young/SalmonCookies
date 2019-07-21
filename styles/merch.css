@@ -1,10 +1,31 @@
-section img{
-    height: 200px;
-    width: auto;
 
-}
+.item {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 40px;
+    
+  }
 
-.item{
-    display: flex;
-    border: 20px, dotted, black;
-}
+  .contain{
+      padding: 20px;
+ }
+
+ .contain img{
+     width:auto;
+     height: 300px;
+ }
+
+ #annoyingCookie{
+     width: 300px;
+     height: auto;
+ }
+  .description{
+      float: right;
+      margin: 30px;
+      padding: 30px;
+      /* font-size: 24pt; */
+      color: rgb(156, 106, 13);
+      font-weight: 600;
+      
+  }

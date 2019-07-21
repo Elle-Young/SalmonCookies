@@ -25,16 +25,16 @@ tbody tr td:first-child{
 
 }
 tbody tr td:last-child{
-    background-color: rgb(122, 122, 122);
+    background-color: rgba(23, 18, 88, 0.507);
     text-align: center;
 }
 
 tbody td:nth-child(even) {
-    background-color: rgb(155, 15, 108);
+    background-color: rgba(9, 84, 87, 0.397);
     text-align: center;
  }
  tbody td:nth-child(odd) {
-    background-color: rgb(78, 184, 16);
+    background-color: rgba(129, 155, 113, 0.644);
     text-align: center;
  }
 

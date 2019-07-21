@@ -1,9 +1,6 @@
 html{
-    /* background-color: grey; */
-    color: rgba(0, 0, 0, 0.794);
- 
     padding: 10px;
-
+    
 }
 
 header{
@@ -12,8 +9,9 @@ header{
     right: 0;
     /* position: fixed; */
     width: auto;
-    background-color: rgb(66, 18, 34);
+    background-color: rgb(202, 141, 91);
     height: 100px;
+    border-radius: 20px;
 }
 
 header img{
@@ -30,12 +28,22 @@ nav{
 nav li{
     margin: 5px;
     float: right;
+    padding-right: 10px;
+    
 }
 body {
+    color: rgba(9, 21, 44, 0.925);
     background-size: cover;
-    background-color: rgb(100, 6, 19);
+    background-color: rgba(218, 101, 101, 0.671);
     font-family: sans-serif;
-    color: rgb(185, 184, 184);
-    
-    
+    border-color: rgb(59, 58, 68);
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 20px;
+
+}
+
+#family{
+    align-self: center;
+
 }
