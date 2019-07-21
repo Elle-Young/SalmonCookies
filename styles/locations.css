@@ -1,3 +1,21 @@
-body > main{
-    background-image: url('./images/chinook.jpg')
+.contain{
+
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 40px;
+ 
+}
+.annoyingcookie{
+    width: 300px;
+    height: auto;
+}
+.description{
+    float: right;
+    margin: 30px;
+    padding: 30px;
+    /* font-size: 24pt; */
+    color: rgb(156, 106, 13);
+    font-weight: 600;
+  
 }

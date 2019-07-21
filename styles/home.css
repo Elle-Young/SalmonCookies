@@ -42,8 +42,17 @@ body {
     border-radius: 20px;
 
 }
+.family img {
+    margin-left: 50%;
+    margin-right: auto;
+    padding: 30px;
+    width: auto;
+    height: 200px;
 
-#family{
-    align-self: center;
+}
+.description{
 
+    color: rgb(156, 106, 13);
+    font-weight: 600;
+    
 }
