@@ -47,12 +47,16 @@ body {
     margin-right: auto;
     padding: 30px;
     width: auto;
-    height: 200px;
+    height: 350px;
+    border-radius: 50%;
+    float: left;
 
 }
 .description{
 
     color: rgb(156, 106, 13);
     font-weight: 600;
+    float: right;
+    padding: 40px;
     
 }
